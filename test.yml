@@ -1,0 +1,13 @@
+---
+- name: woah
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: ping
+      command: |
+        echo hello world, {{ name }}
+      register: x
+    
+    - name: debug
+      debug: 
+        msg: "{{ x.stdout_lines }}"
